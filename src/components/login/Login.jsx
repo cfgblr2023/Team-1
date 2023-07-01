@@ -56,11 +56,7 @@ function Login({ handleLogin, handleClick, showPassword, setShowPassword }) {
   return (
     <div className="login-container">
       <div className="navbar-logo">
-        {" "}
-        <h1 className="ui large header">
-          Mentor<span>Wave</span>
-          <BsSoundwave />
-        </h1>
+       <img src="./src/Images/logo.webp"></img>
       </div>
       <div className="custom-login" id="login-page">
         <h1>Welcome Back</h1>

@@ -22,11 +22,11 @@ const Navbar = ({ handleClick }) => {
     <nav className="navbar">
       {/* logo item */}
       <div className="navbar-logo">
-        <NavLink to="/" className="ui large header">
-          Mentor<span>Wave</span>
-          <BsSoundwave />
-        </NavLink>
-      </div>
+  <NavLink to="/" className="ui large header">
+    <img src="src/Images/Logo.webp" alt="Logo" />
+  </NavLink>
+</div>
+
 
       <div className={`my-menu ${menuOpen ? "open" : ""}`} id="menu">
         <NavLink
