@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 const authRoute = require("./routes/auth");
 const matchingRoute = require("./routes/matching");
+const moduleRoute = require("./routes/module");
 
 dotenv.config();
 app.use(express.json());
@@ -22,6 +23,7 @@ mongoose
 
 app.use("/api/auth", authRoute);
 app.use("/api/matching", matchingRoute);
+app.use("/api/module", moduleRoute);
 
 app.get("/", function (request, response) {
   response.send("Hello");
