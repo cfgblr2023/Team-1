@@ -69,4 +69,37 @@ router.post("/register", async (req, res) => {
   });
 });
 
+//LOGIN
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+      return res.status(400).json("No such user exits");
+    }
+
+    const validated = await bcrypt.compare(req.body.password, user.password);
+
+    if (!validated) {
+      return res.status(400).json("Wrong credentials!");
+    }
+
+    const { password, ...basic } = user._doc;
+    if (user.role == "mentee") {
+      const mentee = await Mentee.findOne({ email: req.body.email });
+      const { email, ...primary } = mentee._doc;
+      const response = { basic, primary };
+      return res.status(200).json(response);
+    }
+
+    //if role is mentor
+    const mentor = await Mentor.findOne({ email: req.body.email });
+    const { email, ...primary } = mentor._doc;
+    const response = { basic, primary };
+    return res.status(200).json(response);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
 module.exports = router;

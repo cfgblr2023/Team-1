@@ -8,7 +8,8 @@ const mentorSchema = new mongoose.Schema(
       unique: true,
     },
     language: {
-      type: String,
+      type: Array,
+      default: [],
       required: true,
     },
     skills: {
