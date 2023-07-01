@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: team1jpmccfg23creg.azurecr.io/team1jpmccfg23creg/jpmccfgregistry:front-end/${{ github.sha }}
+        tags: team1jpmccfg23creg.azurecr.io/team1jpmccfg23creg/team1jpmccfgfrontend:${{ github.sha }}
 
   # deploy:
   #   runs-on: ubuntu-latest
@@ -47,4 +47,4 @@ jobs:
   #       app-name: 'jpmccfg23'
   #       slot-name: 'production'
   #       publish-profile: ${{ secrets.AzureAppService_PublishProfile_ac53abad864449f2a180a4df0a7bc029 }}
-  #       images: 'team1jpmccfg23creg.azurecr.io/team1jpmccfg23creg/jpmccfgregistry:${{ github.sha }}'
+  #       images: 'team1jpmccfg23creg.azurecr.io/team1jpmccfg23creg/team1jpmccfgfrontend:${{ github.sha }}'
