@@ -4,7 +4,6 @@ const Mentor = require("../models/mentor");
 const Mentee = require("../models/mentee");
 
 const bcrypt = require("bcrypt"); //used to generate hash for passwords
-const { async } = require("regenerator-runtime");
 
 //REGISTER
 router.post("/register", async (req, res) => {
