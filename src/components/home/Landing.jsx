@@ -27,9 +27,10 @@ function Landing({ handleClick }) {
       </button>
       <img src="/Mentee.png" alt="mentee"id="mentee-image" />
       </div>
-      <ThemeProvider theme={otherFontTheme}>
       <div className="landing-chatbot">
+        <ThemeProvider theme={otherFontTheme}>
         <ChatBot
+          floating={true}
           steps={[
             {
               id: '1',
@@ -56,8 +57,8 @@ function Landing({ handleClick }) {
             },
           ]}
         />
+        </ThemeProvider>
       </div>
-      </ThemeProvider>
     </div>
     
   );
