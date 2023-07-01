@@ -17,6 +17,9 @@ const mentorSchema = new mongoose.Schema(
       default: [],
       required: true,
     },
+    currentPeer: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

@@ -24,6 +24,9 @@ const menteeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    currentPeer: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

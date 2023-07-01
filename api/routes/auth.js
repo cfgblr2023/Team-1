@@ -41,6 +41,7 @@ router.post("/register", async (req, res) => {
             education: education,
             aspiration: aspiration,
             collegeName: collegeName,
+            currentPeer: "",
           });
 
           await newMentee.save();
@@ -50,6 +51,7 @@ router.post("/register", async (req, res) => {
             email: email,
             language: language,
             skills: skills,
+            currentPeer: "",
           });
 
           await newMentor.save();
@@ -95,7 +97,7 @@ router.post("/login", async (req, res) => {
     //if role is mentor
     const mentor = await Mentor.findOne({ email: req.body.email });
     const { email, ...primary } = mentor._doc;
-    const response = { basic, primary };
+    const response = { primary, basic };
     return res.status(200).json(response);
   } catch (err) {
     return res.status(500).json(err);
