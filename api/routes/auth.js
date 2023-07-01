@@ -4,6 +4,7 @@ const Mentor = require("../models/mentor");
 const Mentee = require("../models/mentee");
 
 const bcrypt = require("bcrypt"); //used to generate hash for passwords
+const { async } = require("regenerator-runtime");
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -33,29 +34,29 @@ router.post("/register", async (req, res) => {
 
         const user = await newUser.save();
 
-        if (role == "mentee") {
-          const { language, education, aspiration, collegeName } = req.body;
-          const newMentee = new Mentee({
-            email: email,
-            language: language,
-            education: education,
-            aspiration: aspiration,
-            collegeName: collegeName,
-            currentPeer: "",
-          });
+        // if (role == "mentee") {
+        //   const { language, education, aspiration, collegeName } = req.body;
+        //   const newMentee = new Mentee({
+        //     email: email,
+        //     language: language,
+        //     education: education,
+        //     aspiration: aspiration,
+        //     collegeName: collegeName,
+        //     currentPeer: "",
+        //   });
 
-          await newMentee.save();
-        } else {
-          const { language, skills } = req.body;
-          const newMentor = new Mentor({
-            email: email,
-            language: language,
-            skills: skills,
-            currentPeer: "",
-          });
+        //   await newMentee.save();
+        // } else {
+        //   const { language, skills } = req.body;
+        //   const newMentor = new Mentor({
+        //     email: email,
+        //     language: language,
+        //     skills: skills,
+        //     currentPeer: "",
+        //   });
 
-          await newMentor.save();
-        }
+        //   await newMentor.save();
+        // }
         res.status(200).json({
           message: {
             msgBody: "Account Successfully Created",
@@ -69,6 +70,56 @@ router.post("/register", async (req, res) => {
       }
     }
   });
+});
+
+router.post("/register/mentee", async (req, res) => {
+  try {
+    const { language, education, aspiration, collegeName, email } = req.body;
+    const newMentee = new Mentee({
+      email: email,
+      language: language,
+      education: education,
+      aspiration: aspiration,
+      collegeName: collegeName,
+      currentPeer: "",
+    });
+
+    await newMentee.save();
+    res.status(200).json({
+      message: {
+        msgBody: "Account Successfully Created",
+        msgError: false,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: { msgBody: "Some error has occured", msgError: true },
+    });
+  }
+});
+
+router.post("/register/mentor", async (req, res) => {
+  try {
+    const { language, skills, email } = req.body;
+    const newMentor = new Mentor({
+      email: email,
+      language: language,
+      skills: skills,
+      currentPeer: "",
+    });
+
+    await newMentor.save();
+    res.status(200).json({
+      message: {
+        msgBody: "Account Successfully Created",
+        msgError: false,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: { msgBody: "Some error has occured", msgError: true },
+    });
+  }
 });
 
 //LOGIN
