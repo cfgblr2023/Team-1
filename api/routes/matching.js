@@ -1,8 +1,6 @@
 const router = require("express").Router();
-const User = require("../models/User");
 const Mentor = require("../models/mentor");
 const Mentee = require("../models/mentee");
-const mentor = require("../models/mentor");
 
 //Request for a mentor
 router.post("/", async (req, res) => {
