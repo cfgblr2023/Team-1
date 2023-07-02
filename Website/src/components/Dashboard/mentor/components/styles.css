@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body{
+    margin:auto;
+}
+
+.personal-info{
+    display:grid;
+    grid-template-columns: 1fr 1fr 4fr;
+    background-color: #FFA500;
+    padding:20px;
+    
+}
+
+.two-rem-tag{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+.personal-info-field{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.personal-info-data{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    display: inline-block;
+}
+
+.name{
+    grid-row-start: 2;
+}
+
+.skills{
+    grid-row-start: 3;
+    grid-column-start: 3;
+}
+
+.languages{
+    grid-row-start: 3;
+    grid-column-start: 2;
+}
+
+.aspiration{
+    grid-row-start: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    
+}
+
+.display-pic{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.mentees-list{
+    margin-left:10px;
+    margin-right:500px;
+    margin-bottom: 200px;
+
+}
+
+.available {
+    background-color: green;
+    color: white;
+  }
